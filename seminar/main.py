@@ -58,19 +58,25 @@
 # в который среднесуточная температура ежедневно превышала 0 градусов Цельсия. Напишите программу,
 # помогающую синоптикам в работе.
 
-import random
-days = 30
-temper = 0
-counter = 0
-max_warmdays = 0
-for i in range(days):
-    temper = random.randint(-10, 10)
-    print(temper, end=" ")
-    if temper > 0:
-        counter += 1
-        if counter > max_warmdays:
-            max_warmdays = counter
-    else:
-        counter = 0
-print()
-print(max_warmdays)
+# import random
+# days = 30
+# temper = 0
+# counter = 0
+# max_warmdays = 0
+# for i in range(days):
+#     temper = random.randint(-10, 10)
+#     print(temper, end=" ")
+#     if temper > 0:
+#         counter += 1
+#         if counter > max_warmdays:
+#             max_warmdays = counter
+#     else:
+#         counter = 0
+# print()
+# print(max_warmdays)
+n = int(input("Введите число: "))
+i = 0
+
+while 2**i <= n:
+    print(2**i, end=" ")
+    i += 1
