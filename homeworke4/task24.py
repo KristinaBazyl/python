@@ -14,7 +14,7 @@ print(row)
 max_position = 0
 max_sum = 0
 for i in range(len(row)):
-    if row[i] + row[(i + 1) % len(row)] + row[(i - 1) % len(row)] > max_position:
+    if row[i] + row[(i + 1) % len(row)] + row[(i - 1) % len(row)] > max_sum:
         max_sum = row[i] + row[(i + 1) % len(row)] + row[(i - 1) % len(row)] 
         max_position = i
         
