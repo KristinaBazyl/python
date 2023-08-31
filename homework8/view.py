@@ -1,12 +1,12 @@
 import text
 
+
 def menu():
     for i, item in enumerate(text.main_menu):
-        if i == 0:
+        if i == 0:  # if not i:
             print(item)
         else:
-            print(f"\t {i}.{item}")
-
+            print(f'\t{i}. {item}')
     while True:
         choice = input(text.input_choice)
         if choice.isdigit() and 0 < int(choice) < len(text.main_menu):
@@ -15,20 +15,21 @@ def menu():
 
 
 def print_message(msg: str):
-    print('\n' + '='*len(msg))
+    print('\n' + '=' * len(msg))
     print(msg)
-    print('='*len(msg) + '\n')
+    print('=' * len(msg) + '\n')
 
-def show_book(book: dict, msg: str) -> bool:
+
+def show_book(book: dict, msg: str):
     if book:
-        
-        print('\n' + '=' * 67)
+        max_len = [len(max(item, key=len)) for item in zip(*book.values())]
+        print('\n' + '=' * (sum(max_len) + 8))
         for i, contact in book.items():
-            print(f'{i:>3}.{contact[0]:<20} {contact[1]:<20} {contact[2]:<20}')
-        print('=' * 67 + '\n')
-
+            print(f'{i:>3}. {contact[0]:<{max_len[0]}} {contact[1]:<{max_len[1]}} {contact[2]:<{max_len[2]}}')
+        print('=' * (sum(max_len) + 8) + '\n')
     else:
         print_message(msg)
+
 
 def input_contact(msg: list[str]) -> list[str]:
     new = []
@@ -36,9 +37,6 @@ def input_contact(msg: list[str]) -> list[str]:
         new.append(input(item))
     return new
 
+
 def input_request(msg: str) -> str:
     return input(msg)
-
-
-
-
